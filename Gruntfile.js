@@ -3,7 +3,9 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   var Autoprefix = require('less-plugin-autoprefix');
-  var autoprefixPlugin = new Autoprefix({browsers: ["last 2 versions"]});
+  var autoprefixPlugin = new Autoprefix({
+    browsers: ["last 4 versions", "IOS 6"]
+  });
 
   var copyFiles = ["**", "!**/_*", "!**/_**/*", "!**/*.{js,jade,less}"];
 
@@ -17,6 +19,14 @@ module.exports = function(grunt) {
     if(outExt) _files.ext = '.' + outExt;
     return [_files];
   }
+
+  var plasma = new (require('plasma'))();
+  function yamlLoader(fp) {
+    return require('js-yaml').safeLoad(require('fs').readFileSync(fp, 'utf8'));
+  }
+  plasma.dataLoader('yml', yamlLoader);
+  plasma.dataLoader('yaml', yamlLoader);
+  plasma.load(['data/**/*.yaml', 'data/**/*.yml', 'data/**/*.json']);
 
   grunt.initConfig({
     browserify: {
@@ -59,6 +69,9 @@ module.exports = function(grunt) {
       src: ['**']
     },
     jade: {
+      options: {
+        data: plasma.data
+      },
       compile: {
         files: files('jade', 'html')
       }
