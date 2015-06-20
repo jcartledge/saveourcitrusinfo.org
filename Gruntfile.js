@@ -3,8 +3,6 @@ module.exports = function(grunt) {
   var Autoprefix = require('less-plugin-autoprefix');
   var autoprefixPlugin = new Autoprefix({browsers: ["last 2 versions"]});
 
-  console.log(autoprefixPlugin);
-
   grunt.initConfig({
 
 
@@ -12,7 +10,7 @@ module.exports = function(grunt) {
       assets: {
         files: [{
           expand: true,
-          src: ["images"],
+          src: ["images/**"],
           dest: "build/",
           cwd: "src/"
         }]
