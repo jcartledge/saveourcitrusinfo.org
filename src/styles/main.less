@@ -1,21 +1,43 @@
+@import "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css";
 @import "base/_colours";
 
 html, body {
   background-color: @orange;
-}
-
-body {
-  display: flex;
-  flex-direction: row;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  padding: 15px;
 }
 
 .logo {
-  margin: auto;
+  float: left;
+  margin-right: 30px;
+}
+
+.jumbotron {
+  background: 0;
+  h1 {
+    font-size: 48px;
+  }
+}
+
+.row {
+  background: 0;
+  img {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  img.pull-right {
+    margin-left: 15px;
+  }
+  img.pull-left {
+    margin-right: 15px;
+  }
+  + .row {
+    margin-top: 30px;
+  }
+}
+
+
+.row--alt {
+  background-color: @white;
+  border-radius: 15px;
+  border: 1px solid @grey;
 }
