@@ -5,6 +5,10 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    clean: {
+      build: ['build']
+    },
+
     connect: {
       server: {
         options: {
@@ -26,7 +30,6 @@ module.exports = function(grunt) {
         }]
       }
     },
-
 
     jade: {
       compile: {
@@ -50,7 +53,7 @@ module.exports = function(grunt) {
           ext: '.css'
         }],
         options: {
-          plugins: [autoprefixPlugin],
+          plugins: [autoprefixPlugin]
         }
       }
     },
@@ -67,15 +70,22 @@ module.exports = function(grunt) {
         files: ['Gruntfile.js']
       }
     }
+
   });
 
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('build', ['jade:compile', 'less:compile', 'copy:assets']);
+  grunt.registerTask('build', [
+    'clean:build',
+    'jade:compile',
+    'less:compile',
+    'copy:assets']);
+
   grunt.registerTask('default', ['build', 'connect', 'watch']);
 
 };
