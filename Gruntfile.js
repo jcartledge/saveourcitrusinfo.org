@@ -3,7 +3,27 @@ module.exports = function(grunt) {
   var Autoprefix = require('less-plugin-autoprefix');
   var autoprefixPlugin = new Autoprefix({browsers: ["last 2 versions"]});
 
+  function srcFiles(ext) {
+    return ["**/*." + ext, "!**/_*." + ext, "!**/_**/*." + ext];
+  }
+
   grunt.initConfig({
+
+    browserify: {
+      compile: {
+        options: {
+          browserifyOptions: {
+            debug: true
+          }
+        },
+        files: [{
+          expand: true,
+          src: srcFiles('js'),
+          dest: "build/",
+          cwd: "src/"
+        }]
+      }
+    },
 
     clean: {
       build: ['build']
@@ -35,7 +55,7 @@ module.exports = function(grunt) {
       compile: {
         files: [{
           expand: true,
-          src: ["**/*.jade", "!**/_*.jade"],
+          src: srcFiles('jade'),
           dest: "build/",
           cwd: "src/",
           ext: '.html'
@@ -47,7 +67,7 @@ module.exports = function(grunt) {
       compile: {
         files: [{
           expand: true,
-          src: ["**/*.less", "!**/_*.less"],
+          src: srcFiles('less'),
           dest: "build/",
           cwd: "src/",
           ext: '.css'
@@ -73,6 +93,7 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -83,6 +104,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:build',
     'jade:compile',
+    'browserify:compile',
     'less:compile',
     'copy:assets']);
 

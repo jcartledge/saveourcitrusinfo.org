@@ -1,4 +1,4 @@
-extends layouts/_h5bp
+extends _layouts/h5bp
 
 block title
   | Save our Citrus
@@ -23,22 +23,22 @@ block content
   .row.row--alt
     .col-md-12
       img.pull-right(src="//lorempixel.com/400/300")
-      include:markdown content/got-gall.md
+      include:markdown _content/got-gall.md
 
   .row
     .col-md-12
       img.pull-left(src="//lorempixel.com/400/300")
-      include:markdown content/control-methods.md
+      include:markdown _content/control-methods.md
 
   .row.row--alt
     .col-md-12
       img.pull-right(src="//lorempixel.com/400/300")
-      include:markdown content/correct-disposal.md
+      include:markdown _content/correct-disposal.md
 
   .row
     .col-md-12
       img.pull-left(src="//lorempixel.com/400/300")
-      include:markdown content/coordination-is-key.md
+      include:markdown _content/coordination-is-key.md
 
   footer
     | Proudly supported by the Darebin and Banyule Councils as part of the Community Leaders in Sustainability program.
