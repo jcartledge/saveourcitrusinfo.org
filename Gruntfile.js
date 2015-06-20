@@ -3,8 +3,15 @@ module.exports = function(grunt) {
   var Autoprefix = require('less-plugin-autoprefix');
   var autoprefixPlugin = new Autoprefix({browsers: ["last 2 versions"]});
 
-  function srcFiles(ext) {
-    return ["**/*." + ext, "!**/_*." + ext, "!**/_**/*." + ext];
+  function files(inExt, outExt) {
+    var _files = {
+      expand: true,
+      src: ["**/*." + inExt, "!**/_*." + inExt, "!**/_**/*." + inExt],
+      dest: "build/",
+      cwd: "src/"
+    };
+    if(outExt) _files.ext = '.' + outExt;
+    return [_files];
   }
 
   grunt.initConfig({
@@ -16,12 +23,7 @@ module.exports = function(grunt) {
             debug: true
           }
         },
-        files: [{
-          expand: true,
-          src: srcFiles('js'),
-          dest: "build/",
-          cwd: "src/"
-        }]
+        files: files('js')
       }
     },
 
@@ -53,25 +55,13 @@ module.exports = function(grunt) {
 
     jade: {
       compile: {
-        files: [{
-          expand: true,
-          src: srcFiles('jade'),
-          dest: "build/",
-          cwd: "src/",
-          ext: '.html'
-        }]
+        files: files('jade', 'html')
       }
     },
 
     less: {
       compile: {
-        files: [{
-          expand: true,
-          src: srcFiles('less'),
-          dest: "build/",
-          cwd: "src/",
-          ext: '.css'
-        }],
+        files: files('less', 'css'),
         options: {
           plugins: [autoprefixPlugin]
         }
