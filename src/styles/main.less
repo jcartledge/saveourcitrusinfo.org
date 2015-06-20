@@ -32,6 +32,11 @@ html, body {
   img.pull-left {
     margin-right: 15px;
   }
+  &:nth-child(even) {
+    background-color: @white;
+    border-radius: 15px;
+    border: 1px solid @grey;
+  }
   + .row {
     margin-top: 30px;
     h2 {
@@ -47,13 +52,6 @@ html, body {
       }
     }
   }
-}
-
-
-.row--alt {
-  background-color: @white;
-  border-radius: 15px;
-  border: 1px solid @grey;
 }
 
 footer {

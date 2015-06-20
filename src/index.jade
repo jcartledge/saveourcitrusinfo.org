@@ -1,44 +1,39 @@
 extends _layouts/h5bp
 
-block title
-  | Save our Citrus
+block title Save our Citrus
 
 block content
-  .row
-    .jumbotron
-      img.logo(src="images/logo.png")
-      h1 Melbourne's lemon trees are under attack!
-      p The native citrus gall wasp has colonised our lemon trees.
-      p This is reducing productivity and is slowly killing our beautiful trees.
-      p Come to our free information evening to find out how we can nip citrus gall wasp in the bud.
-      p.pull-right
-        a.btn.btn-primary.btn-lg(href="#", role="button") Register your interest
-      p
-        b When:
-        |  12 August 2015
-      p
-        b Where:
-        |  West Heidelberg Adult Ed
 
-  .row.row--alt
-    .col-md-12
-      img.pull-right(src="//lorempixel.com/400/300")
-      include:markdown _content/got-gall.md
+  .row: .col-md-12: .jumbotron
 
-  .row
-    .col-md-12
-      img.pull-left(src="//lorempixel.com/400/300")
-      include:markdown _content/control-methods.md
+    img.logo(src="images/logo.png")
 
-  .row.row--alt
-    .col-md-12
-      img.pull-right(src="//lorempixel.com/400/300")
-      include:markdown _content/correct-disposal.md
+    h1 Melbourne's lemon trees are under attack!
+    p The native citrus gall wasp has colonised our lemon trees.
+    p This is reducing productivity and is slowly killing our beautiful trees.
+    p Come to our free information evening to find out how we can nip citrus gall wasp in the bud.
 
-  .row
-    .col-md-12
-      img.pull-left(src="//lorempixel.com/400/300")
-      include:markdown _content/coordination-is-key.md
+    p.pull-right
+      a.btn.btn-primary.btn-lg(href="#", role="button") Register your interest
 
-  footer
-    | Proudly supported by the Darebin and Banyule Councils as part of the Community Leaders in Sustainability program.
+    p #[b When:] 12 August 2015
+    p #[b Where:] West Heidelberg Adult Ed
+
+  .row: .col-md-12
+    img.pull-right(src="//lorempixel.com/400/300")
+    include:markdown _content/got-gall.md
+
+  .row: .col-md-12
+    img.pull-left(src="//lorempixel.com/400/300")
+    include:markdown _content/control-methods.md
+
+  .row: .col-md-12
+    img.pull-right(src="//lorempixel.com/400/300")
+    include:markdown _content/correct-disposal.md
+
+  .row: .col-md-12
+    img.pull-left(src="//lorempixel.com/400/300")
+    include:markdown _content/coordination-is-key.md
+
+  footer.
+    Proudly supported by the Darebin and Banyule Councils as part of the Community Leaders in Sustainability program.
