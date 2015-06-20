@@ -53,6 +53,13 @@ module.exports = function(grunt) {
       }
     },
 
+    'gh-pages': {
+      options: {
+        base: 'build'
+      },
+      src: ['**']
+    },
+
     jade: {
       compile: {
         files: files('jade', 'html')
@@ -90,6 +97,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-gh-pages');
 
   grunt.registerTask('build', [
     'clean:build',
@@ -98,6 +106,7 @@ module.exports = function(grunt) {
     'less:compile',
     'copy:assets']);
 
+  grunt.registerTask('deploy', ['build', 'gh-pages']);
   grunt.registerTask('default', ['build', 'connect', 'watch']);
 
 };
