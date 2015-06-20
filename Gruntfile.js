@@ -5,6 +5,16 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+    connect: {
+      server: {
+        options: {
+          port: 9001,
+          base: 'build',
+          livereload: true,
+          open: true
+        }
+      }
+    },
 
     copy: {
       assets: {
@@ -46,6 +56,9 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        livereload: true
+      },
       build: {
         files: ['src/**'],
         tasks: ['build']
@@ -56,13 +69,14 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['jade:compile', 'less:compile', 'copy:assets']);
-  grunt.registerTask('default', ['build', 'watch']);
+  grunt.registerTask('default', ['build', 'connect', 'watch']);
 
 };
 
