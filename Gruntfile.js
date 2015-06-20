@@ -7,6 +7,19 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
+
+    copy: {
+      assets: {
+        files: [{
+          expand: true,
+          src: ["images"],
+          dest: "build/",
+          cwd: "src/"
+        }]
+      }
+    },
+
+
     jade: {
       compile: {
         files: [{
@@ -45,11 +58,12 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('build', ['jade:compile', 'less:compile']);
+  grunt.registerTask('build', ['jade:compile', 'less:compile', 'copy:assets']);
   grunt.registerTask('default', ['build', 'watch']);
 
 };
