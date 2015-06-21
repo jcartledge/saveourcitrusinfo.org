@@ -1,5 +1,8 @@
 extends _layouts/h5bp
 
+mixin content-block
+  .row.content-block: .col-md-12: block
+
 block title
   | Save our Citrus
 
@@ -20,18 +23,7 @@ block content
     p #[b When:] 12 August 2015
     p #[b Where:] West Heidelberg Adult Ed
 
-  .row.content-block
-    .col-md-12
-      include:markdown _content/got-gall.md
-
-  .row.content-block
-    .col-md-12
-      include:markdown _content/control-methods.md
-
-  .row.content-block
-    .col-md-12
-      include:markdown _content/correct-disposal.md
-
-  .row.content-block
-    .col-md-12
-      include:markdown _content/coordination-is-key.md
+  +content-block: include:markdown _content/got-gall.md
+  +content-block: include:markdown _content/control-methods.md
+  +content-block: include:markdown _content/correct-disposal.md
+  +content-block: include:markdown _content/coordination-is-key.md
