@@ -33,6 +33,7 @@
     "underscore": "^1.8.3"
   },
   "dependencies": {
+    "bootstrap": "^3.3.5",
     "grunt-contrib-clean": "^0.6.0"
   }
 }
