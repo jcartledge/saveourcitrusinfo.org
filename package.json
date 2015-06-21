@@ -27,6 +27,7 @@
     "grunt-gh-pages": "^0.10.0",
     "jquery": "^2.1.4",
     "less-plugin-autoprefix": "^1.4.2",
+    "less-plugin-glob": "^1.1.0",
     "lodash": "^3.9.3",
     "markdown": "^0.5.0",
     "underscore": "^1.8.3"

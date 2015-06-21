@@ -77,7 +77,7 @@ module.exports = function(grunt) {
       compile: {
         files: files('less', 'css'),
         options: {
-          plugins: [autoprefixPlugin]
+          plugins: [autoprefixPlugin, require('less-plugin-glob')]
         }
       }
     },

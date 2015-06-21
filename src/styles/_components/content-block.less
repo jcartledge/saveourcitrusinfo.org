@@ -1,0 +1,35 @@
+.content-block {
+  margin-top: 30px;
+  h2 {
+    font-family: 'Lobster Two', cursive;
+    font-style: italic;
+    transform: rotate(-10deg);
+    font-size: 48px;
+    transform-origin: top left;
+    display: inline-block;
+    margin-top: 65px;
+    + p {
+      margin-top: 15px;
+    }
+  }
+  img {
+    float: left;
+    margin-right: 15px;
+  }
+
+  &:nth-child(even) {
+    background: @white;
+    border-radius: 15px;
+    border: 1px solid @grey;
+    img {
+      float: right;
+      margin-left: 15px;
+      margin-right: 0;
+    }
+  }
+  &:nth-child(odd) {
+    h2 {
+      margin-left: 420px;
+    }
+  }
+}
