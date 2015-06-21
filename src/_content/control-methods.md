@@ -1,5 +1,7 @@
 ## Control Methods.
 
+![placeholder](//lorempixel.com/400/300)
+
 ### Avoid high nitrogen fertilizers in spring.
 
 Fertilizing with a high nitrogen content in spring will promote excessive new soft growth which is very attractive to the wasp.

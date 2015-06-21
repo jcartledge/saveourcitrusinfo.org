@@ -5,12 +5,16 @@
 
 html, body {
   background-color: @orange;
-  padding: 15px;
+  .container {
+    padding: 15px;
+  }
 }
 
 .logo {
   float: left;
   margin-right: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .jumbotron {
@@ -20,43 +24,41 @@ html, body {
   }
 }
 
-.row {
-  background: 0;
-  img {
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-  img.pull-right {
-    margin-left: 15px;
-  }
-  img.pull-left {
-    margin-right: 15px;
-  }
-  &:nth-child(even) {
-    background-color: @white;
-    border-radius: 15px;
-    border: 1px solid @grey;
-  }
-  + .row {
-    margin-top: 30px;
-    h2 {
-      font-family: 'Lobster Two', cursive;
-      font-style: italic;
-      transform: rotate(-10deg);
-      font-size: 48px;
-      transform-origin: top left;
-      display: inline-block;
-      margin-top: 65px;
-      + p {
-        margin-top: 15px;
-      }
+.content-block {
+  margin-top: 30px;
+  h2 {
+    font-family: 'Lobster Two', cursive;
+    font-style: italic;
+    transform: rotate(-10deg);
+    font-size: 48px;
+    transform-origin: top left;
+    display: inline-block;
+    margin-top: 65px;
+    + p {
+      margin-top: 15px;
     }
   }
+  img {
+    float: left;
+    margin-right: 15px;
+  }
+
+  &:nth-child(even) {
+    background: @white;
+    border-radius: 15px;
+    border: 1px solid @grey;
+    img {
+      float: right;
+      margin-left: 15px;
+      margin-right: 0;
+    }
+  }
+
 }
 
 footer {
   margin-top: 30px;
-  color: @grey;
-  font-size: small;
+  padding: 15px;
+  background-color: @white;
   text-align: center;
 }

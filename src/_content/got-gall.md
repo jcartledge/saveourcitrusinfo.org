@@ -2,6 +2,8 @@
 
 ### What is Gall?
 
+![placeholder](//lorempixel.com/400/300)
+
 Gall is lumpy growths that occur in Citrus trees infected by the [native Citrus Gall Wasp - (Bruchophagus fellis)](http://www.dpi.nsw.gov.au/__data/assets/pdf_file/0004/340609/Citrus-gall-wasp-in-southern-australia.pdf).
 
 Originally, this native wasp was limited to Queensland and northern New South Wales where if fed on native finger limes. But the citrus gall wasp has adapted to a wider variety of citrus fruits. Since the 1990’s it has successfully migrated through NSW to Melbourne where it is now virtually endemic in the back yard lemon tree.

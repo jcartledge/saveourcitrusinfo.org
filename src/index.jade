@@ -1,6 +1,7 @@
 extends _layouts/h5bp
 
-block title Save our Citrus
+block title
+  | Save our Citrus
 
 block content
 
@@ -19,21 +20,18 @@ block content
     p #[b When:] 12 August 2015
     p #[b Where:] West Heidelberg Adult Ed
 
-  .row: .col-md-12
-    img.img-responsive.img-thumbnail.pull-right(src="//lorempixel.com/400/300")
-    include:markdown _content/got-gall.md
+  .row.content-block
+    .col-md-12
+      include:markdown _content/got-gall.md
 
-  .row: .col-md-12
-    img.img-responsive.img-thumbnail.pull-left(src="//lorempixel.com/400/300")
-    include:markdown _content/control-methods.md
+  .row.content-block
+    .col-md-12
+      include:markdown _content/control-methods.md
 
-  .row: .col-md-12
-    img.img-responsive.img-thumbnail.pull-right(src="//lorempixel.com/400/300")
-    include:markdown _content/correct-disposal.md
+  .row.content-block
+    .col-md-12
+      include:markdown _content/correct-disposal.md
 
-  .row: .col-md-12
-    img.img-responsive.img-thumbnail.pull-left(src="//lorempixel.com/400/300")
-    include:markdown _content/coordination-is-key.md
-
-  footer.
-    Proudly supported by the Darebin and Banyule Councils as part of the Community Leaders in Sustainability program.
+  .row.content-block
+    .col-md-12
+      include:markdown _content/coordination-is-key.md
