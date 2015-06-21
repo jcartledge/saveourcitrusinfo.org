@@ -1,7 +1,11 @@
 module.exports = function(grunt) {
 
+  require('time-grunt')(grunt);
+
   var Autoprefix = require('less-plugin-autoprefix');
   var autoprefixPlugin = new Autoprefix({browsers: ["last 2 versions"]});
+
+  var copyFiles = ["**", "!**/_*", "!**/_**/*", "!**/*.{js,jade,less}"];
 
   function files(inExt, outExt) {
     var _files = {
@@ -15,7 +19,6 @@ module.exports = function(grunt) {
   }
 
   grunt.initConfig({
-
     browserify: {
       compile: {
         options: {
@@ -26,11 +29,9 @@ module.exports = function(grunt) {
         files: files('js')
       }
     },
-
     clean: {
       build: ['build']
     },
-
     connect: {
       server: {
         options: {
@@ -41,38 +42,27 @@ module.exports = function(grunt) {
         }
       }
     },
-
     copy: {
       assets: {
         files: [{
           expand: true,
-          src: [
-            "**",
-            "!**/_*",
-            "!**/_**/*",
-            "!**/*.js",
-            "!**/*.jade",
-            "!**/*.less"
-          ],
+          src: copyFiles,
           dest: "build/",
           cwd: "src/"
         }]
       }
     },
-
     'gh-pages': {
       options: {
         base: 'build'
       },
       src: ['**']
     },
-
     jade: {
       compile: {
         files: files('jade', 'html')
       }
     },
-
     less: {
       compile: {
         files: files('less', 'css'),
@@ -81,33 +71,39 @@ module.exports = function(grunt) {
         }
       }
     },
-
     watch: {
       options: {
-        livereload: true
+        livereload: true,
+        cwd: 'src'
       },
-      build: {
-        files: ['src/**'],
-        tasks: ['build']
+      jade: {
+        files: ['**/*.{jade,md}'],
+        tasks: ['jade']
+      },
+      browserify: {
+        files: ['**/*.js'],
+        tasks: ['browserify']
+      },
+      less: {
+        files: ['**/*.less'],
+        tasks: ['less']
+      },
+      copy: {
+        files: copyFiles,
+        tasks: ['copy']
       },
       grunt: {
-        files: ['Gruntfile.js']
+        files: ['Gruntfile.js'],
+        options: {
+          cwd: '.'
+        }
       }
     }
-
   });
 
-  grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-jade');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-gh-pages');
-
-  grunt.registerTask('build', ['clean', 'jade', 'browserify', 'less', 'copy']);
-  grunt.registerTask('deploy', ['build', 'gh-pages']);
-  grunt.registerTask('default', ['build', 'connect', 'watch']);
+  require('load-grunt-tasks')(grunt);
+  grunt.registerTask('build', ['jade', 'browserify', 'less', 'copy']);
+  grunt.registerTask('deploy', ['clean', 'build', 'gh-pages']);
+  grunt.registerTask('default', ['clean', 'build', 'connect', 'watch']);
 
 };
