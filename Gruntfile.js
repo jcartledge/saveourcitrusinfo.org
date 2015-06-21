@@ -106,13 +106,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-gh-pages');
 
-  grunt.registerTask('build', [
-    'clean:build',
-    'jade:compile',
-    'browserify:compile',
-    'less:compile',
-    'copy:assets']);
-
+  grunt.registerTask('build', ['clean', 'jade', 'browserify', 'less', 'copy']);
   grunt.registerTask('deploy', ['build', 'gh-pages']);
   grunt.registerTask('default', ['build', 'connect', 'watch']);
 
