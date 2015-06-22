@@ -1,6 +1,6 @@
 ## Control Methods.
 
-![placeholder](//lorempixel.com/400/300)
+![placeholder](//placehold.it/400x300)
 
 ### Avoid high nitrogen fertilizers in spring.
 

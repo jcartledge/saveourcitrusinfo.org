@@ -1,6 +1,6 @@
 ## Correct  Disposal.
 
-![placeholder](//lorempixel.com/400/300)
+![placeholder](//placehold.it/400x300)
 
 Do not dispose of infected material in your green bin or compost. The galls will still hatch and may re-infect your tree - and your neighbours.
 
