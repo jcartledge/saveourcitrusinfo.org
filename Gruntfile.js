@@ -74,6 +74,7 @@ module.exports = function(grunt) {
     watch: {
       options: {
         livereload: true,
+        livereloadOnError: false,
         cwd: 'src'
       },
       jade: {
