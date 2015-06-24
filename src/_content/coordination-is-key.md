@@ -1,6 +1,6 @@
 ## Co-ordination is Key.
 
-![placeholder](//placehold.it/400x300)
+![Lemons](/images/lemons.jpg)
 
 Problems arise when trees are pruned at the wrong time or not pruned at all leaving the wasp to spread and contaminate new trees.
 
