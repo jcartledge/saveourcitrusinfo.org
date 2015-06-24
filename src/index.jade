@@ -1,7 +1,6 @@
 extends _layouts/h5bp
 
 include _mixins/content-block
-include _mixins/modal
 
 block title
   | Save our Citrus
@@ -30,6 +29,3 @@ block content
   +content-block: include:markdown _content/control-methods.md
   +content-block: include:markdown _content/correct-disposal.md
   +content-block: include:markdown _content/coordination-is-key.md
-
-  +modal("signup", "Register to attend")
-    include _partials/signup

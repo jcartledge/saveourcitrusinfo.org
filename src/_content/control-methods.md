@@ -1,6 +1,6 @@
 ## Control Methods.
 
-![placeholder](//placehold.it/400x300)
+![Prune directly below the infected area. Cut just above the first outward facing shoot.](images/diagram.jpg)
 
 ### Avoid high nitrogen fertilizers in spring.
 
