@@ -99,7 +99,7 @@ module.exports = function(grunt) {
         cwd: 'src'
       },
       jade: {
-        files: ['**/*.{jade,md}'],
+        files: ['../' + dataFiles, '**/*.{jade,md}'],
         tasks: ['jade']
       },
       browserify: {
