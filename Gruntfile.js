@@ -8,6 +8,7 @@ module.exports = function(grunt) {
   });
 
   var copyFiles = ["**", "!**/_*", "!**/_**/*", "!**/*.{js,jade,less}"];
+  var dataFiles = 'data/**/*.{yaml,yml,json}';
 
   function files(inExt, outExt) {
     var _files = {
@@ -20,13 +21,16 @@ module.exports = function(grunt) {
     return [_files];
   }
 
-  var plasma = new (require('plasma'))();
-  function yamlLoader(fp) {
-    return require('js-yaml').safeLoad(require('fs').readFileSync(fp, 'utf8'));
+  function loadData(dataFiles) {
+    var plasma = new (require('plasma'))();
+    function yamlLoader(fp) {
+      return require('js-yaml').safeLoad(require('fs').readFileSync(fp, 'utf8'));
+    }
+    plasma.dataLoader('yml', yamlLoader);
+    plasma.dataLoader('yaml', yamlLoader);
+    plasma.load(dataFiles);
+    return plasma.data;
   }
-  plasma.dataLoader('yml', yamlLoader);
-  plasma.dataLoader('yaml', yamlLoader);
-  plasma.load(['data/**/*.yaml', 'data/**/*.yml', 'data/**/*.json']);
 
   grunt.initConfig({
     browserify: {
@@ -70,7 +74,11 @@ module.exports = function(grunt) {
     },
     jade: {
       options: {
-        data: plasma.data
+        data: {
+          // Helpers can be required here.
+          // YAML and JSON from the data directory is autoloaded below:
+          data: loadData(dataFiles)
+        }
       },
       compile: {
         files: files('jade', 'html')

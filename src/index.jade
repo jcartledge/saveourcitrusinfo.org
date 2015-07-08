@@ -19,7 +19,7 @@ block content
     .session-list
       h2.session-list--heading Educational talks
       ul.session-list--list
-        each session in talks.sessions
+        each session in data.sessions
           li.session-list--session: ul
             li: strong #{session.location}
             li #{session.address}
