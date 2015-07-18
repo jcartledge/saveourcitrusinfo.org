@@ -1,0 +1,5 @@
+mixin session(session)
+  li.session-list--session: ul
+    li: strong #{session.location}
+    li.address #{session.address}
+    li.datetime #{session.date}, #{session.time}

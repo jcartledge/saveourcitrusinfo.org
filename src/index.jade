@@ -1,6 +1,7 @@
 extends _layouts/h5bp
 
 include _mixins/content-block
+include _mixins/session
 
 block title
   | Save our Citrus
@@ -23,10 +24,7 @@ block content
       h2.session-list--heading Educational talks
       ul.session-list--list
         each session in data.sessions
-          li.session-list--session: ul
-            li: strong #{session.location}
-            li #{session.address}
-            li #{session.date}, #{session.time}
+          +session(session)
 
     .brochure-link
       a(href="save-our-citrus-brochure.pdf" target="_blank")
