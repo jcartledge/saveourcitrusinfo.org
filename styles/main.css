@@ -1,6 +1,17 @@
 @import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Lobster+Two:400italic");
+.address:before {
+  content: "\f041";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #595959;
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
+}
 .brochure-link {
   padding-top: 1em;
   text-align: center;
@@ -52,7 +63,7 @@
 .content-block:nth-child(even) {
   background: #f2f2f2;
   border-radius: 15px;
-  border: 1px solid #8c8c8c;
+  border: 1px solid #999999;
 }
 .content-block:nth-child(even) img {
   float: right;
@@ -61,6 +72,17 @@
 }
 .content-block:nth-child(odd) h2 {
   margin-left: 420px;
+}
+.datetime:before {
+  content: "\f073";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #595959;
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
 }
 .jumbotron {
   background: 0;
