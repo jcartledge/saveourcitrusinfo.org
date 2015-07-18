@@ -28,6 +28,12 @@ block content
             li #{session.address}
             li #{session.date}, #{session.time}
 
+    .brochure-link
+      a(href="save-our-citrus-brochure.pdf" target="_blank")
+        img(src="images/brochure.png" alt="")
+        br
+        button.btn.btn-primary #[i.fa.fa-file-pdf-o] Download our brochure
+
   +content-block: include:markdown _content/got-gall.md
   +content-block: include:markdown _content/control-methods.md
   +content-block: include:markdown _content/correct-disposal.md
