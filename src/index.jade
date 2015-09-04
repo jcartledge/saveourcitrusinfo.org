@@ -15,24 +15,18 @@ block content
     h1 Melbourne's lemon trees are under attack!
     p The native citrus gall wasp has colonised our lemon trees.
     p This is reducing productivity and is slowly killing our beautiful trees.
-    p Come along to a free educational talk and learn how to prevent the spread of Citrus Gall Wasp in our suburbs. The presentation will cover correct pruning and other control techniques as well as appropriate disposal methods.
     p.
-      For more information or to register to attend please email
+      For more information on our upcoming crowdfunding project or to register for our mailing list please email
       #[a(href="mailto:robertspalmerk@gmail.com") Kaye Roberts-Palmer].
-
-    .session-list
-      h2.session-list--heading Educational talks
-      ul.session-list--list
-        each session in data.sessions
-          +session(session)
-
-    .brochure-link
-      a(href="save-our-citrus-brochure.pdf" target="_blank")
-        img(src="images/brochure.png" alt="")
-        br
-        button.btn.btn-primary #[i.fa.fa-file-pdf-o] Download our brochure
 
   +content-block: include:markdown _content/got-gall.md
   +content-block: include:markdown _content/control-methods.md
   +content-block: include:markdown _content/correct-disposal.md
   +content-block: include:markdown _content/coordination-is-key.md
+
+  
+  .brochure-link
+    a(href="save-our-citrus-brochure.pdf" target="_blank")
+      img(src="images/brochure.png" alt="")
+      br
+      button.btn.btn-primary #[i.fa.fa-file-pdf-o] Download our brochure
